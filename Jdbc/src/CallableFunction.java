@@ -9,7 +9,7 @@ public class CallableFunction {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "dinesh", "dinesh9999");
-			CallableStatement cs=con.prepareCall("{call totalstudents()}");
+			CallableStatement cs=con.prepareCall("{?=call totalstudents_v2()}");
 			cs.registerOutParameter(1, Types.INTEGER);
 			cs.execute();
 			System.out.println(cs.getInt(1));
